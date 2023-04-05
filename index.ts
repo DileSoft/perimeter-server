@@ -19,7 +19,7 @@ let games:Game[] = [];
 app.post('/new_game', (req, res) => {
     const game:Game = req.body;
     game.host = req.ip;
-    game.port = req.socket.remotePort || 0;
+    game.port = game.port || 12987;
     game.lastUpdate = Date.now();
     games.push(req.body);
 });
